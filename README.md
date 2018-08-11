@@ -1,14 +1,5 @@
 # flow-reporter-codeframe [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url]
 
-<!-- When logo is needed
-<p align="center">
-  <a href="https://github.com/username/repo">
-    <img src="./logo.png">
-  </a>
-</p>
-<br>
--->
-
 > [@FlowType](https://flow.org) errors reporter similiar to ESLint's codeframe one
 
 <div id="thetop"></div>
@@ -41,6 +32,7 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 
 ## Table of Contents
 - [Install](#install)
+- [CLI](#cli)
 - [API](#api)
   * [flowReporter](#flowreporter)
   * [.getDefaultOptions](#getdefaultoptions)
@@ -59,6 +51,23 @@ _We highly recommend to use Yarn when you think to contribute to this project._
 ```bash
 $ yarn add flow-reporter-codeframe
 ```
+
+## CLI
+Use `flow check` or `flow focus-check filename.js` and the json formatter.
+ ```
+# general use
+flow check --json --json-version 2 | flow-reporter-codeframe
+ # or
+cat report-file.txt | flow-reporter-codeframe
+ # or generate report file
+flow check --json --json-version 2 > flow-report.json
+ # and pass that file to the reporter
+flow-reporter-codeframe flow-report.json
+```
+ Optionally pass `--no-color` to disable colors - make note that we detect if it is
+run on CI, so they are disabled there.
+ Optionally, we can highlight the code, pass `--highlight-code` if you want to be more fancy. :)
+If `--no-color` is passed, that's disabled automagically too.
 
 ## API
 _Generated using [docks](http://npm.im/docks)._
