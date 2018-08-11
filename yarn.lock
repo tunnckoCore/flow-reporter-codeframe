@@ -2013,9 +2013,9 @@ esm@^3.0.72:
   version "3.0.74"
   resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.74.tgz#d9b5ac6d6b210068a41337373b002c502c824fbf"
 
-esmc@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/esmc/-/esmc-0.7.1.tgz#c079472b9b53d36ebccb2d03bacd3b16e8085649"
+esmc@^0.8.0:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/esmc/-/esmc-0.8.1.tgz#0d9f6706c9e80924f07f60c633d145290eddf273"
   dependencies:
     "@babel/code-frame" "^7.0.0-beta.55"
     "@babel/core" "^7.0.0-beta.55"
@@ -2032,6 +2032,7 @@ esmc@^0.7.1:
     flow-bin "^0.78.0"
     flow-copy-source "^2.0.2"
     flow-remove-types "^1.2.3"
+    flow-reporter-codeframe "^1.1.6"
     fs-extra "^7.0.0"
     is-ci "^1.1.0"
     micromatch "^3.1.10"
@@ -2289,6 +2290,19 @@ flow-remove-types@^1.2.3:
   dependencies:
     babylon "^6.15.0"
     vlq "^0.2.1"
+
+flow-reporter-codeframe@^1.1.6:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/flow-reporter-codeframe/-/flow-reporter-codeframe-1.1.7.tgz#c651a880851b634fc446f10ff2b32d5ab29c60ef"
+  dependencies:
+    "@babel/code-frame" "^7.0.0-rc.1"
+    ansi-colors "^2.0.5"
+    fs-extra "^7.0.0"
+    get-stdin "^6.0.0"
+    is-ci "^1.1.0"
+    mri "^1.1.1"
+    node-r_esm "^0.1.0"
+    supports-color "^5.4.0"
 
 for-in@^1.0.2:
   version "1.0.2"
