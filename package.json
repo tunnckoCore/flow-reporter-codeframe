@@ -11,7 +11,8 @@
     "commit-dry": "git status --porcelain && git add -A && gitcommit -sS",
     "precommit": "yarn lint && yarn test",
     "commit": "yarn commit-dry",
-    "prepublishOnly": "ESMC_NODE_VERSION=6 yarn esmc --force"
+    "prepublishOnly": "ESMC_NODE_VERSION=6 yarn esmc --force",
+    "cli": "node bin/cli.js"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -19,27 +20,27 @@
   "dependencies": {
     "@babel/code-frame": "^7.0.0-rc.1",
     "ansi-colors": "^2.0.5",
+    "esm": "^3.0.74",
     "fs-extra": "^7.0.0",
     "get-stdin": "^6.0.0",
     "is-ci": "^1.1.0",
     "mri": "^1.1.1",
-    "node-r_esm": "^0.1.0",
     "supports-color": "^5.4.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
     "docks": "^0.3.7",
-    "esmc": "^0.8.0",
+    "esmc": "*",
     "gitcommit": "^1.0.9",
     "new-release": "^4.0.3",
     "nyc": "^12.0.2"
   },
   "files": [
     "dist",
-    "cli.js"
+    "bin"
   ],
-  "bin": "cli.js",
+  "bin": "bin/cli.js",
   "main": "dist/nodejs/__index.js",
   "module": "dist/nodejs/index.js",
   "version": "0.0.0-semantically-released",

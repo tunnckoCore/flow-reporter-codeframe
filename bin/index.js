@@ -1,5 +1,3 @@
-#!/usr/bin/env node-r_esm
-
 /**
  * @copyright 2018-present, Charlike Mike Reagent (https://tunnckocore.com)
  * @license Apache-2.0
@@ -12,7 +10,7 @@ import mri from 'mri';
 import getStdin from 'get-stdin';
 
 /* eslint-disable-next-line import/no-unresolved */
-import reporter, { getDefaultOptions } from './dist/nodejs/index';
+import reporter, { getDefaultOptions } from '../src/index';
 
 const def = getDefaultOptions();
 const argv = mri(proc.argv.slice(2), {
@@ -25,7 +23,7 @@ argv.highlightCode = argv['highlight-code'];
 
 const inputReportFile = argv._[0];
 
-async function main() {
+export default async function main() {
   const report = inputReportFile
     ? fs.readFileSync(path.resolve(proc.cwd(), inputReportFile), 'utf8')
     : await getStdin();
@@ -48,8 +46,3 @@ async function main() {
   // We should exit with non-zero code, always.
   proc.exit(1);
 }
-
-main().catch((err) => {
-  console.error(err.stack);
-  proc.exit(1);
-});
