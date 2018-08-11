@@ -19,7 +19,10 @@
     "@babel/code-frame": "^7.0.0-rc.1",
     "ansi-colors": "^2.0.5",
     "fs-extra": "^7.0.0",
+    "get-stdin": "^6.0.0",
     "is-ci": "^1.1.0",
+    "mri": "^1.1.1",
+    "node-r_esm": "^0.1.0",
     "supports-color": "^5.4.0"
   },
   "devDependencies": {
@@ -31,8 +34,10 @@
     "nyc": "^12.0.2"
   },
   "files": [
-    "dist"
+    "dist",
+    "cli.js"
   ],
+  "bin": "cli.js",
   "main": "dist/nodejs/__index.js",
   "module": "dist/nodejs/index.js",
   "version": "0.0.0-semantically-released",
@@ -49,10 +54,10 @@
     "extends": "tunnckocore"
   },
   "nyc": {
-    "statements":50,
+    "statements": 50,
     "functions": 50,
-    "branches":50,
-    "lines":50,
+    "branches": 50,
+    "lines": 50,
     "cache": true,
     "check-coverage": true,
     "reporter": [

@@ -11,14 +11,16 @@ import ansi from 'ansi-colors';
 import isColors from 'supports-color';
 import { codeFrameColumns } from '@babel/code-frame';
 
+export function getDefaultOptions() {
+  return {
+    color: isCI === true ? false : isColors.stdout.level,
+    highlightCode: false,
+  };
+}
+flowReporter.getDefaultOptions = getDefaultOptions();
+
 export default async function flowReporter(val, opts) {
-  const options = Object.assign(
-    {
-      color: isCI === true ? false : isColors.stdout.level,
-      highlightCode: false,
-    },
-    opts,
-  );
+  const options = Object.assign(getDefaultOptions(), opts);
   ansi.enabled = options.color;
 
   return new Promise(async (resolve) => {
