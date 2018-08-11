@@ -26,7 +26,7 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 
 <p align="center">
   <a href="https://github.com/olstenlarck/flow-reporter-codeframe">
-    <img src="./media/demo.png" width="75%">
+    <img src="./media/demo.png" width="85%">
   </a>
 </p>
 
@@ -65,7 +65,7 @@ flow-reporter-codeframe flow-report.json
 ```
 
 Optionally pass `--no-color` to disable colors - make note that we detect if it is
-run on CI with [is-ci][], so they are disabled there by default.
+run on CI, so they are disabled there.
 
 Optionally, we can highlight the code, pass `--highlight-code` if you want to be more fancy. :)
 If `--no-color` is passed, that's disabled automagically too.
@@ -74,17 +74,13 @@ If `--no-color` is passed, that's disabled automagically too.
 _Generated using [docks](http://npm.im/docks)._
 ### [src/index.js](/src/index.js)
 
-#### [flowReporter](/src/index.js#L47)
+#### [flowReporter](/src/index.js#L43)
 Formatting the `val` to look like ESLint's cool `codeframe` reporter.
 It may be a bit more verbose and to have a bit more lines of code than
 the Flow's default one, but that's not a bad thing.
 
 You should provide valid report, which means that for now you are forced to
 use `--json --json-version 2` flags if you want to use that reporter.
-
-<p align="center">
-  <img src="./media/api-usage.svg">
-</p>
 
 **Params**
 - `val` **{string|object}** the Flow's JSON version 2 thingy, `--json` + `--json-version 2`
@@ -96,13 +92,13 @@ use `--json --json-version 2` flags if you want to use that reporter.
 **Examples**
 ```javascript
 import execa from 'execa';
-import reporter, { getDefaultOptions } from 'flow-reporter-codeframe';
+import reporter from 'flow-reporter-codeframe';
 
 async function main() {
   try {
     await execa('flow', ['check', '--json', '--json-version', '2']);
   } catch (err) {
-    const output = await reporter(err.stdout, getDefaultOptions());
+    const output = await reporter(err.stdout);
     console.log(output);
   }
 }
@@ -110,7 +106,7 @@ async function main() {
 main();
 ```
 
-#### [.getDefaultOptions](/src/index.js#L220)
+#### [.getDefaultOptions](/src/index.js#L216)
 Get default options for the reporter. By default,
 we have colors turned on, and highlighting code turned off.
 
@@ -136,7 +132,9 @@ Thanks to the hard work of these wonderful people this project is alive and it a
 [Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always welcome. :sparkles: 
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars3.githubusercontent.com/u/5038030?v=4" width="120px;"/><br /><sub><b>Charlike Mike Reagent</b></sub>](https://tunnckocore.com)<br />[💻](https://github.com/olstenlarck/flow-reporter-codeframe/commits?author=olstenlarck "Code") [📖](https://github.com/olstenlarck/flow-reporter-codeframe/commits?author=olstenlarck "Documentation") [💬](#question-olstenlarck "Answering Questions") [👀](#review-olstenlarck "Reviewed Pull Requests") [🔍](#fundingFinding-olstenlarck "Funding Finding") |
+| :---: |
 
 ## License
 Copyright (c) 2018-present, [Charlike Mike Reagent][author-link] `<olsten.larck@gmail.com>`.  

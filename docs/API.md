@@ -1,17 +1,13 @@
 _Generated using [docks](http://npm.im/docks)._
 ### [src/index.js](/src/index.js)
 
-#### [flowReporter](/src/index.js#L47)
+#### [flowReporter](/src/index.js#L43)
 Formatting the `val` to look like ESLint's cool `codeframe` reporter.
 It may be a bit more verbose and to have a bit more lines of code than
 the Flow's default one, but that's not a bad thing.
 
 You should provide valid report, which means that for now you are forced to
 use `--json --json-version 2` flags if you want to use that reporter.
-
-<p align="center">
-  <img src="./media/api-usage.svg">
-</p>
 
 **Params**
 - `val` **{string|object}** the Flow's JSON version 2 thingy, `--json` + `--json-version 2`
@@ -23,13 +19,13 @@ use `--json --json-version 2` flags if you want to use that reporter.
 **Examples**
 ```javascript
 import execa from 'execa';
-import reporter, { getDefaultOptions } from 'flow-reporter-codeframe';
+import reporter from 'flow-reporter-codeframe';
 
 async function main() {
   try {
     await execa('flow', ['check', '--json', '--json-version', '2']);
   } catch (err) {
-    const output = await reporter(err.stdout, getDefaultOptions());
+    const output = await reporter(err.stdout);
     console.log(output);
   }
 }
@@ -37,7 +33,7 @@ async function main() {
 main();
 ```
 
-#### [.getDefaultOptions](/src/index.js#L220)
+#### [.getDefaultOptions](/src/index.js#L216)
 Get default options for the reporter. By default,
 we have colors turned on, and highlighting code turned off.
 

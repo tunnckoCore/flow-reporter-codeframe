@@ -21,13 +21,13 @@ import { codeFrameColumns } from '@babel/code-frame';
  *
  * @example
  * import execa from 'execa';
- * import reporter, { getDefaultOptions } from 'flow-reporter-codeframe';
+ * import reporter from 'flow-reporter-codeframe';
  *
  * async function main() {
  *   try {
  *     await execa('flow', ['check', '--json', '--json-version', '2']);
  *   } catch (err) {
- *     const output = await reporter(err.stdout, getDefaultOptions());
+ *     const output = await reporter(err.stdout);
  *     console.log(output);
  *   }
  * }
