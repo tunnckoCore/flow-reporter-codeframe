@@ -304,7 +304,7 @@
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.51.tgz#27cec2df409df60af58270ed8f6aa55409ea86f6"
 
-"@babel/parser@7.0.0-rc.1":
+"@babel/parser@7.0.0-rc.1", "@babel/parser@^7.0.0-beta.55":
   version "7.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-rc.1.tgz#d009a9bba8175d7b971e30cd03535b278c44082d"
 
@@ -1737,6 +1737,16 @@ detect-next-version@2.0.2:
   resolved "https://registry.yarnpkg.com/detect-next-version/-/detect-next-version-2.0.2.tgz#22b56b98837aea0d350e787c43975be4a7e05eab"
   dependencies:
     parse-commit-message "1.1.2"
+
+docks@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/docks/-/docks-0.3.7.tgz#e5f5e9ec4b80315f79ad174259e7423873ee54e9"
+  dependencies:
+    "@babel/parser" "^7.0.0-beta.55"
+    doctrine "^2.1.0"
+    fast-glob "^2.2.2"
+    mkdirp "^0.5.1"
+    mri "^1.1.1"
 
 doctrine@1.5.0:
   version "1.5.0"

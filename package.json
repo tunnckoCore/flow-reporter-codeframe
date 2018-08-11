@@ -4,6 +4,8 @@
   "license": "Apache-2.0",
   "licenseStart": "2018",
   "scripts": {
+    "predocs": "rm -rf docs",
+    "docs": "docks 'src/**/*' --outfile docs/API.md && verb",
     "lint": "eslint src test --fix --quiet",
     "test": "nyc --require esmc/register asia",
     "gitadd": "git status --porcelain && git add -A",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
+    "docks": "^0.3.7",
     "esmc": "^0.7.1",
     "gitcommit": "^1.0.9",
     "new-release": "^4.0.3",
@@ -82,6 +85,13 @@
     ],
     "lint": {
       "reflinks": true
-    }
+    },
+    "related": {
+      "list": []
+    },
+    "reflinks": [
+      "is-ci",
+      "new-release"
+    ]
   }
 }
