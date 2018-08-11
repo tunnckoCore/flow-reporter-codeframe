@@ -2,13 +2,6 @@
 
 > [@FlowType](https://flow.org) errors reporter similiar to ESLint's codeframe one
 
-<p align="center">
-  <a href="https://github.com/olstenlarck/flow-reporter-codeframe">
-    <img src="./media/demo.png">
-  </a>
-</p>
-<br>
-
 <div id="thetop"></div>
 
 [![Code style][codestyle-img]][codestyle-url]
@@ -30,6 +23,12 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 [![NPM Downloads Total][downloads-total-img]][npmv-url]
 
 Project is [semantically](https://semver.org) & automatically released on [CircleCI][codecoverage-url] with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
+
+<p align="center">
+  <a href="https://github.com/olstenlarck/flow-reporter-codeframe">
+    <img src="./media/demo.png" width="75%">
+  </a>
+</p>
 
 ## Table of Contents
 - [Install](#install)
@@ -73,8 +72,9 @@ If `--no-color` is passed, that's disabled automagically too.
 
 ## API
 _Generated using [docks](http://npm.im/docks)._
+### [src/index.js](/src/index.js)
 
-### [flowReporter](/src/index.js#L47)
+#### [flowReporter](/src/index.js#L47)
 Formatting the `val` to look like ESLint's cool `codeframe` reporter.
 It may be a bit more verbose and to have a bit more lines of code than
 the Flow's default one, but that's not a bad thing.
@@ -110,7 +110,7 @@ async function main() {
 main();
 ```
 
-### [.getDefaultOptions](/src/index.js#L220)
+#### [.getDefaultOptions](/src/index.js#L220)
 Get default options for the reporter. By default,
 we have colors turned on, and highlighting code turned off.
 

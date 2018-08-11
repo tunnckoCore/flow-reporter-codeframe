@@ -19,10 +19,6 @@ import { codeFrameColumns } from '@babel/code-frame';
  * You should provide valid report, which means that for now you are forced to
  * use `--json --json-version 2` flags if you want to use that reporter.
  *
- * <p align="center">
- *   <img src="./media/api-usage.svg">
- * </p>
- *
  * @example
  * import execa from 'execa';
  * import reporter, { getDefaultOptions } from 'flow-reporter-codeframe';
