@@ -156,18 +156,39 @@ function getContents({ primary, root, message }) {
   return { primary, root, message };
 }
 
+function colorFixer(line) {
+  const cleanLine = ansi.stripColor(line);
+  const replacer = (x) => (m, part) => ansi[x].bold(ansi.stripColor(part));
+
+  if (cleanLine.trim().startsWith('|')) {
+    if (cleanLine.includes('[1]')) {
+      return line.replace(/(\^.+)/g, replacer('blue'));
+    }
+    if (cleanLine.includes('[2]')) {
+      return line.replace(/(\^.+)/g, replacer('red'));
+    }
+  }
+  return line;
+}
+
 function createFrame({ primary, root, message }, { color, highlightCode }) {
   /* eslint-disable no-param-reassign */
   primary.frame = codeFrameColumns(primary.content, primary.loc, {
     highlightCode: color && highlightCode,
     message: ansi.blue(primary.id),
-  });
+  })
+    .split('\n')
+    .map(colorFixer)
+    .join('\n');
 
   if (root) {
     root.frame = codeFrameColumns(root.content, root.loc, {
       highlightCode: color && highlightCode,
       message: ansi.red(root.id),
-    });
+    })
+      .split('\n')
+      .map(colorFixer)
+      .join('\n');
   }
 
   /* eslint-enable no-param-reassign */

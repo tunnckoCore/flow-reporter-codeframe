@@ -8,10 +8,9 @@
     "docs": "docks 'src/**/*' --outfile docs/API.md && verb",
     "lint": "eslint src test --fix --quiet",
     "test": "nyc --require esmc/register asia",
-    "gitadd": "git status --porcelain && git add -A",
-    "commit-dry": "yarn gitadd && gitcommit -sS",
-    "precommit": "yarn lint && yarn test && yarn gitadd",
-    "commit": "gitcommit -sS",
+    "commit-dry": "git status --porcelain && git add -A && gitcommit -sS",
+    "precommit": "yarn lint && yarn test",
+    "commit": "yarn commit-dry",
     "prepublishOnly": "ESMC_NODE_VERSION=6 yarn esmc --force"
   },
   "engines": {
