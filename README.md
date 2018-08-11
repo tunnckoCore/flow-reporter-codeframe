@@ -72,9 +72,8 @@ If `--no-color` is passed, that's disabled automagically too.
 
 ## API
 _Generated using [docks](http://npm.im/docks)._
-### [src/index.js](/src/index.js)
 
-#### [flowReporter](/src/index.js#L43)
+### [flowReporter](/src/index.js#L43)
 Formatting the `val` to look like ESLint's cool `codeframe` reporter.
 It may be a bit more verbose and to have a bit more lines of code than
 the Flow's default one, but that's not a bad thing.
@@ -106,7 +105,7 @@ async function main() {
 main();
 ```
 
-#### [.getDefaultOptions](/src/index.js#L216)
+### [.getDefaultOptions](/src/index.js#L216)
 Get default options for the reporter. By default,
 we have colors turned on, and highlighting code turned off.
 
