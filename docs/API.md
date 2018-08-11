@@ -32,7 +32,7 @@ async function main() {
 main();
 ```
 
-### [.getDefaultOptions](/src/index.js#L216)
+### [.getDefaultOptions](/src/index.js#L237)
 Get default options for the reporter. By default,
 we have colors turned on, and highlighting code turned off.
 

@@ -1724,9 +1724,9 @@ detect-next-version@2.0.2:
   dependencies:
     parse-commit-message "1.1.2"
 
-docks@^0.3.7:
-  version "0.3.10"
-  resolved "https://registry.yarnpkg.com/docks/-/docks-0.3.10.tgz#326ec41b7f6b6724df740670314a9712ac8110cb"
+docks@^0.3.11:
+  version "0.3.11"
+  resolved "https://registry.yarnpkg.com/docks/-/docks-0.3.11.tgz#9e5cc8a0527f2238ed44234a6761a228fe643953"
   dependencies:
     "@babel/parser" "^7.0.0-beta.55"
     doctrine "^2.1.0"
