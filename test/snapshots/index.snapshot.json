@@ -1,0 +1,1 @@
+{"foo bar":{"skip":false,"todo":false,"run":false,"isPending":false,"isRejected":false,"isFulfilled":true,"id":1,"str":"async t => {\n  const output = await (0, _index.default)(fixture); // console.log(output);\n\n  t.ok(output && output.length);\n}","title":"foo bar"}}

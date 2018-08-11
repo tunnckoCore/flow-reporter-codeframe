@@ -1,0 +1,82 @@
+{
+  "name": "flow-reporter-codeframe",
+  "description": "FlowType errors reporter similiar to ESLint's codeframe one",
+  "license": "Apache-2.0",
+  "licenseStart": "2018",
+  "scripts": {
+    "lint": "eslint src test --fix --quiet",
+    "test": "nyc --require esmc/register asia",
+    "gitadd": "git status --porcelain && git add -A",
+    "commit-dry": "yarn gitadd && gitcommit -sS",
+    "precommit": "yarn lint && yarn test && yarn gitadd",
+    "commit": "gitcommit -sS",
+    "prepublishOnly": "ESMC_NODE_VERSION=6 yarn esmc --force"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "@babel/code-frame": "^7.0.0-rc.1",
+    "ansi-colors": "^2.0.5",
+    "fs-extra": "^7.0.0",
+    "is-ci": "^1.1.0",
+    "supports-color": "^5.4.0"
+  },
+  "devDependencies": {
+    "all-contributors-cli": "^5.4.0",
+    "asia": "^0.19.7",
+    "esmc": "^0.7.1",
+    "gitcommit": "^1.0.9",
+    "new-release": "^4.0.3",
+    "nyc": "^12.0.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/nodejs/__index.js",
+  "module": "dist/nodejs/index.js",
+  "version": "0.0.0-semantically-released",
+  "repository": "olstenlarck/flow-reporter-codeframe",
+  "homepage": "https://github.com/olstenlarck/flow-reporter-codeframe",
+  "author": "Charlike Mike Reagent (https://tunnckocore.com)",
+  "publishConfig": {
+    "access": "public"
+  },
+  "eslintConfig": {
+    "extends": "esmc"
+  },
+  "renovate": {
+    "extends": "tunnckocore"
+  },
+  "nyc": {
+    "statements":50,
+    "functions": 50,
+    "branches":50,
+    "lines":50,
+    "cache": true,
+    "check-coverage": true,
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "exclude": [
+      "test"
+    ]
+  },
+  "verb": {
+    "run": true,
+    "toc": {
+      "render": true,
+      "method": "preWrite",
+      "maxdepth": 3,
+      "footer": ""
+    },
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
+}
