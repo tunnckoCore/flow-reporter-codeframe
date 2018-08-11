@@ -85,13 +85,6 @@
     ],
     "lint": {
       "reflinks": true
-    },
-    "related": {
-      "list": []
-    },
-    "reflinks": [
-      "is-ci",
-      "new-release"
-    ]
+    }
   }
 }

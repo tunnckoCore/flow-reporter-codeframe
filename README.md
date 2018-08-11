@@ -1,5 +1,14 @@
 # flow-reporter-codeframe [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url]
 
+<!-- When logo is needed
+<p align="center">
+  <a href="https://github.com/username/repo">
+    <img src="./logo.png">
+  </a>
+</p>
+<br>
+-->
+
 > [@FlowType](https://flow.org) errors reporter similiar to ESLint's codeframe one
 
 <div id="thetop"></div>
@@ -32,44 +41,24 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 
 ## Table of Contents
 - [Install](#install)
-- [CLI](#cli)
 - [API](#api)
   * [flowReporter](#flowreporter)
   * [.getDefaultOptions](#getdefaultoptions)
 - [Contributing](#contributing)
-- [Contributors](#contributors)
+  * [Follow the Guidelines](#follow-the-guidelines)
+  * [Support the project](#support-the-project)
+  * [OPEN Open Source](#open-open-source)
+  * [Wonderful Contributors](#wonderful-contributors)
 - [License](#license)
 
 ## Install
-This project requires [**Node.js**](https://nodejs.org) **>=6.0.0**. Install it using [**yarn**](https://yarnpkg.com) or [**npm**](https://npmjs.com).  
+This project requires [**Node.js**](https://nodejs.org) **>=6.0.0**. Install it using 
+[**yarn**](https://yarnpkg.com) or [**npm**](https://npmjs.com).  
 _We highly recommend to use Yarn when you think to contribute to this project._
 
 ```bash
 $ yarn add flow-reporter-codeframe
 ```
-
-## CLI
-Use `flow check` or `flow focus-check filename.js` and the json formatter.
-
-```
-# general use
-flow check --json --json-version 2 | flow-reporter-codeframe
-
-# or
-cat report-file.txt | flow-reporter-codeframe
-
-# or generate report file
-flow check --json --json-version 2 > flow-report.json
-
-# and pass that file to the reporter
-flow-reporter-codeframe flow-report.json
-```
-
-Optionally pass `--no-color` to disable colors - make note that we detect if it is
-run on CI, so they are disabled there.
-
-Optionally, we can highlight the code, pass `--highlight-code` if you want to be more fancy. :)
-If `--no-color` is passed, that's disabled automagically too.
 
 ## API
 _Generated using [docks](http://npm.im/docks)._
@@ -124,21 +113,50 @@ console.log(getDefaultOptions());
 **[back to top](#thetop)**
 
 ## Contributing
-Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
-For bugs reports and feature requests, [please create an issue][open-issue-url] or ping [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
 
-## Contributors
-Thanks to the hard work of these wonderful people this project is alive and it also follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.  
-[Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always welcome. :sparkles: 
+### Follow the Guidelines
+Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for 
+advices.  
+For bugs reports and feature requests, [please create an issue][open-issue-url] or ping 
+[@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
+
+### Support the project
+
+[Become a Partner or Sponsor?][patreon-url] :dollar: Check the **Partner**, **Sponsor** or **Omega-level** tiers! :tada: You can 
+get your company logo, link & name on this file. It's also rendered on package's page in [npmjs.com][npmv-url] and 
+[yarnpkg.com](https://yarnpkg.com/en/package/flow-reporter-codeframe) sites too! :rocket:
+
+Not financial support? Okey! [Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars 
+and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always 
+welcome. :sparkles:
+
+### OPEN Open Source
+
+This project is following [OPEN Open Source](http://openopensource.org) model
+
+> Individuals making significant and valuable contributions are given commit-access to the project to 
+contribute as they see fit. This project is built on collective efforts and it's not strongly guarded by its founders.
+
+There are a few basic ground-rules for its contributors
+
+1. Any **significant modifications** must be subject to a pull request to get feedback from other contributors.
+2. [Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request) to get feedback are 
+_encouraged_ for any other trivial contributions, but are not required.
+3. Contributors should attempt to adhere to the prevailing code-style and development workflow.
+
+### Wonderful Contributors
+Thanks to the hard work of these wonderful people this project is alive! It follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.  
+Don't hesitate to add yourself to that list if you have made any contribution! ;) [See how, here](https://github.com/jfmengels/all-contributors-cli#usage).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
 | [<img src="https://avatars3.githubusercontent.com/u/5038030?v=4" width="120px;"/><br /><sub><b>Charlike Mike Reagent</b></sub>](https://tunnckocore.com)<br />[💻](https://github.com/olstenlarck/flow-reporter-codeframe/commits?author=olstenlarck "Code") [📖](https://github.com/olstenlarck/flow-reporter-codeframe/commits?author=olstenlarck "Documentation") [💬](#question-olstenlarck "Answering Questions") [👀](#review-olstenlarck "Reviewed Pull Requests") [🔍](#fundingFinding-olstenlarck "Funding Finding") |
 | :---: |
 
+Consider showing your [support](#support-the-project) to them. :sparkling_heart:
+
 ## License
-Copyright (c) 2018-present, [Charlike Mike Reagent][author-link] `<olsten.larck@gmail.com>`.  
-Released under the [Apache-2.0 License][license-url].
+Copyright (c) 2018-present, [contributors](#wonderful-contributors). Released under the [Apache-2.0 License][license-url].
 
 ---
 
@@ -188,12 +206,13 @@ _This file was generated by [verb-generate-readme](https://github.com/verbose/ve
 [paypal-donate-img]: https://badgen.net/badge/$/support/purple
 
 [patreon-url]: https://www.patreon.com/bePatron?u=5579781
-[patreon-img]: https://badgen.net/badge/become/a%20patron/F96854?icon=patreon
+[patreon-img]: https://badgen.net/badge/patreon/tunnckoCore/F96854?icon=patreon
+
+[patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 
 [shareu]: https://twitter.com/intent/tweet?text=https://github.com/olstenlarck/flow-reporter-codeframe&via=tunnckoCore
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/olstenlarck/flow-reporter-codeframe/issues/new
 [author-link]: https://tunnckocore.com
 
-[is-ci]: https://github.com/watson/is-ci
 [new-release]: https://github.com/tunnckoCore/new-release
