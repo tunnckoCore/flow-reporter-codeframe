@@ -220,4 +220,4 @@ export function getDefaultOptions() {
   };
 }
 
-flowReporter.getDefaultOptions = getDefaultOptions();
+flowReporter.getDefaultOptions = getDefaultOptions;
