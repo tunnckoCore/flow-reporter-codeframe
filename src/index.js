@@ -11,6 +11,8 @@ import ansi from 'ansi-colors';
 import isColors from 'supports-color';
 import { codeFrameColumns } from '@babel/code-frame';
 
+const stripColor = ansi.stripColor || ansi.unstyle;
+
 /**
  * Formatting the `val` to look like ESLint's cool `codeframe` reporter.
  * It may be a bit more verbose and to have a bit more lines of code than
@@ -157,8 +159,8 @@ function getContents({ primary, root, message }) {
 }
 
 function colorFixer(line) {
-  const cleanLine = ansi.stripColor(line);
-  const replacer = (x) => (m, part) => ansi[x].bold(ansi.stripColor(part));
+  const cleanLine = stripColor(line);
+  const replacer = (x) => (m, part) => ansi[x].bold(stripColor(part));
 
   if (cleanLine.trim().startsWith('|')) {
     if (cleanLine.includes('[1]')) {
