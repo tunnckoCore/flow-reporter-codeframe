@@ -1,15 +1,6 @@
 linux_task:
-  env:
-    CIRRUS_WORKING_DIR: "~/flow-reporter-codeframe"
-  node_modules_cache:
-    folder: node_modules
-    fingerprint_script: cat yarn.lock
-    populate_script: yarn install
-  test_script: yarn test
   container:
     image: node:10
-
-osx_task:
   env:
     CIRRUS_WORKING_DIR: "~/flow-reporter-codeframe"
   node_modules_cache:
@@ -17,7 +8,16 @@ osx_task:
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   test_script: yarn test
+
+osx_task:
   osx_instance:
     image: high-sierra-xcode-9.4.1
   yarn_script:
     - brew install yarn && node --version
+  env:
+    CIRRUS_WORKING_DIR: "~/flow-reporter-codeframe"
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat yarn.lock
+    populate_script: yarn install
+  test_script: yarn test
