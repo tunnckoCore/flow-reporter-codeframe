@@ -8,14 +8,12 @@ foobarbaz: &foobarbaz
     populate_script: yarn install
   test_script: yarn test
 
-task:
-  name: test (linux)
+linux_task:
   container:
     image: node:10
   <<: *foobarbaz
 
-task:
-  name: test (osx)
+osx_task:
   osx_instance:
     image: high-sierra-xcode-9.4.1
   yarn_script:
