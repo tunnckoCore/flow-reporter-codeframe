@@ -9,13 +9,13 @@ foobarbaz: &foobarbaz
   test_script: yarn test
 
 linux_task:
+  <<: *foobarbaz
   container:
     image: node:10
-  <<: *foobarbaz
 
 osx_task:
+  <<: *foobarbaz
   osx_instance:
     image: high-sierra-xcode-9.4.1
   yarn_script:
     - brew install yarn && node --version
-  <<: *foobarbaz
