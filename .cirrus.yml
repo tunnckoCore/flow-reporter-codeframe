@@ -1,15 +1,23 @@
-check_task:
+
+foobarbaz: &foobarbaz
   env:
     CIRRUS_WORKING_DIR: "~/flow-reporter-codeframe"
-  container:
-    image: node:latest
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
-  script: yarn test
+  test_script: yarn test
 
-win_task:
-  windows_container:
-    image: cirrusci/windowsservercore:2016
-  script: yarn test
+task:
+  name: test (linux)
+  container:
+    image: node:10
+  <<: *foobarbaz
+
+task:
+  name: test (osx)
+  osx_instance:
+    image: high-sierra-xcode-9.4.1
+  yarn_script:
+    - brew install yarn && node --version
+  <<: *foobarbaz
