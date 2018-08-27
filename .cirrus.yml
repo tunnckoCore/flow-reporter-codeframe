@@ -8,3 +8,8 @@ check_task:
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   script: yarn test
+
+win_task:
+  windows_container:
+    image: cirrusci/windowsservercore:2016
+  script: yarn test
