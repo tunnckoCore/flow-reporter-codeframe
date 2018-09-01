@@ -1,4 +1,4 @@
-const foo = 'hoho';
+const foo = "hoho";
 
 caca;
 xx;

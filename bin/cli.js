@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-'use strict';
+"use strict";
 
-const proc = require('process')
-const esmLoader = require('esm')
+const proc = require("process");
+const esmLoader = require("esm");
 
-const main = esmLoader(module)('./index').default
+const main = esmLoader(module)("./index").default;
 
-main().catch((err) => {
-  console.error(err.stack)
-  proc.exit(1)
-})
+main().catch(err => {
+  console.error(err.stack);
+  proc.exit(1);
+});

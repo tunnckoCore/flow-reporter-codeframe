@@ -1,7 +1,7 @@
 // @flow
 
-import toString from './baz';
-import num from './qux/hah';
+import toString from "./baz";
+import num from "./qux/hah";
 
 export function add(foo: number, bar: number) {
   return foo + bar;
