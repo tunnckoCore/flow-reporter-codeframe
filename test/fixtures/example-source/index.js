@@ -1,7 +1,7 @@
 // @flow
 
-import baz from './baz';
-import { add, sub } from './math';
+import baz from "./baz";
+import { add, sub } from "./math";
 
 // const foo = 123;
 
@@ -14,9 +14,9 @@ export default async () => {
   // some huh yup
   // console.log(import.meta);
   if (subed === 2) {
-    console.log('okkk');
+    console.log("okkk");
   } else {
-    sub(added, 'sasasasasasa');
-    console.log('not ok', added);
+    sub(added, "sasasasasasa");
+    console.log("not ok", added);
   }
 };

@@ -3,38 +3,38 @@
  * @license Apache-2.0
  */
 
-import fs from 'fs';
-import path from 'path';
-import proc from 'process';
-import mri from 'mri';
-import getStdin from 'get-stdin';
+import fs from "fs";
+import path from "path";
+import proc from "process";
+import mri from "mri";
+import getStdin from "get-stdin";
 
 /* eslint-disable-next-line import/no-unresolved */
-import reporter, { getDefaultOptions } from '../src/index';
+import reporter, { getDefaultOptions } from "../src/index";
 
 const def = getDefaultOptions();
 const argv = mri(proc.argv.slice(2), {
   default: {
     color: def.color,
-    'highlight-code': def.highlightCode,
-  },
+    "highlight-code": def.highlightCode
+  }
 });
-argv.highlightCode = argv['highlight-code'];
+argv.highlightCode = argv["highlight-code"];
 
 const inputReportFile = argv._[0];
 
 export default async function main() {
   const report = inputReportFile
-    ? fs.readFileSync(path.resolve(proc.cwd(), inputReportFile), 'utf8')
+    ? fs.readFileSync(path.resolve(proc.cwd(), inputReportFile), "utf8")
     : await getStdin();
 
   if (!report) {
-    console.error('Usage:');
+    console.error("Usage:");
     console.error(
-      '  flow check --json --json-version 2 | flow-reporter-codeframe',
+      "  flow check --json --json-version 2 | flow-reporter-codeframe"
     );
-    console.error('  cat report.json | flow-reporter-codeframe');
-    console.error('  flow-reporter-codeframe <path-to-report-file>');
+    console.error("  cat report.json | flow-reporter-codeframe");
+    console.error("  flow-reporter-codeframe <path-to-report-file>");
     proc.exit(1);
   }
 

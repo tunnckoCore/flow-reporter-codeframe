@@ -3,13 +3,13 @@
  * @license Apache-2.0
  */
 
-import path from 'path';
-import proc from 'process';
-import isCI from 'is-ci';
-import fs from 'fs-extra';
-import ansi from 'ansi-colors';
-import isColors from 'supports-color';
-import { codeFrameColumns } from '@babel/code-frame';
+import path from "path";
+import proc from "process";
+import isCI from "is-ci";
+import fs from "fs-extra";
+import ansi from "ansi-colors";
+import isColors from "supports-color";
+import { codeFrameColumns } from "@babel/code-frame";
 
 const stripColor = ansi.stripColor || ansi.unstyle;
 
@@ -46,12 +46,12 @@ export default async function flowReporter(val, opts) {
   const options = Object.assign(getDefaultOptions(), opts);
   ansi.enabled = options.color;
 
-  return new Promise(async (resolve) => {
+  return new Promise(async resolve => {
     let result = null;
 
-    if (val && typeof val === 'object') {
+    if (val && typeof val === "object") {
       result = val;
-    } else if (val && typeof val === 'string') {
+    } else if (val && typeof val === "string") {
       result = JSON.parse(val);
     }
 
@@ -62,45 +62,45 @@ export default async function flowReporter(val, opts) {
 
     const output = result.errors
       .map(normalize)
-      .map(normalizeRefs('primary'))
-      .map(normalizeRefs('root'))
+      .map(normalizeRefs("primary"))
+      .map(normalizeRefs("root"))
       .map(getContents)
-      .map((x) => createFrame(x, options))
+      .map(x => createFrame(x, options))
       .reduce(outputError, []);
 
-    output.unshift('');
+    output.unshift("");
     output.push(ansi.bold.red(`${result.errors.length} errors found.`));
 
-    resolve(output.join('\n'));
+    resolve(output.join("\n"));
   });
 }
 
 function normalize({ primaryLoc, referenceLocs, messageMarkup }) {
   const message = messageMarkup
     .reduce((acc, item) => {
-      if (item.kind === 'Text') {
+      if (item.kind === "Text") {
         return acc.concat(item.text);
       }
-      if (item.kind === 'Code') {
+      if (item.kind === "Code") {
         return acc.concat(ansi.bold(item.text));
       }
-      if (item.kind === 'Reference') {
+      if (item.kind === "Reference") {
         const type = item.message[0].text;
-        return acc.concat(ansi.underline(type), ' ', `[${item.referenceId}]`);
+        return acc.concat(ansi.underline(type), " ", `[${item.referenceId}]`);
       }
 
       return acc;
     }, [])
-    .join('')
-    .replace('[1]', ansi.bold.blue('[1]'))
-    .replace('[2]', ansi.bold.red('[2]'));
+    .join("")
+    .replace("[1]", ansi.bold.blue("[1]"))
+    .replace("[2]", ansi.bold.red("[2]"));
 
-  return { message, primary: primaryLoc, root: referenceLocs['2'] };
+  return { message, primary: primaryLoc, root: referenceLocs["2"] };
 }
 
 function normalizeRefs(type) {
-  return (res) => {
-    if (type === 'root' && !res.root) {
+  return res => {
+    if (type === "root" && !res.root) {
       return res;
     }
 
@@ -112,9 +112,9 @@ function normalizeRefs(type) {
       absolutePath: res[type].source,
       loc: {
         start: { line: refStart.line, column: refStart.column },
-        end: { line: refEnd.line, column: refEnd.column + 1 },
+        end: { line: refEnd.line, column: refEnd.column + 1 }
       },
-      id: type === 'primary' ? '[1]' : '[2]',
+      id: type === "primary" ? "[1]" : "[2]"
     };
 
     /* istanbul ignore if */
@@ -147,10 +147,10 @@ function getPath(x) {
 
 function getContents({ primary, root, message }) {
   /* eslint-disable no-param-reassign */
-  primary.content = fs.readFileSync(getPath(primary), 'utf8');
+  primary.content = fs.readFileSync(getPath(primary), "utf8");
 
   if (root) {
-    root.content = fs.readFileSync(getPath(root), 'utf8');
+    root.content = fs.readFileSync(getPath(root), "utf8");
   }
 
   /* eslint-enable no-param-reassign */
@@ -160,14 +160,14 @@ function getContents({ primary, root, message }) {
 
 function colorFixer(line) {
   const cleanLine = stripColor(line);
-  const replacer = (x) => (m, part) => ansi[x].bold(stripColor(part));
+  const replacer = x => (m, part) => ansi[x].bold(stripColor(part));
 
-  if (cleanLine.trim().startsWith('|')) {
-    if (cleanLine.includes('[1]')) {
-      return line.replace(/(\^.+)/g, replacer('blue'));
+  if (cleanLine.trim().startsWith("|")) {
+    if (cleanLine.includes("[1]")) {
+      return line.replace(/(\^.+)/g, replacer("blue"));
     }
-    if (cleanLine.includes('[2]')) {
-      return line.replace(/(\^.+)/g, replacer('red'));
+    if (cleanLine.includes("[2]")) {
+      return line.replace(/(\^.+)/g, replacer("red"));
     }
   }
   return line;
@@ -177,20 +177,20 @@ function createFrame({ primary, root, message }, { color, highlightCode }) {
   /* eslint-disable no-param-reassign */
   primary.frame = codeFrameColumns(primary.content, primary.loc, {
     highlightCode: color && highlightCode,
-    message: ansi.blue(primary.id),
+    message: ansi.blue(primary.id)
   })
-    .split('\n')
+    .split("\n")
     .map(colorFixer)
-    .join('\n');
+    .join("\n");
 
   if (root) {
     root.frame = codeFrameColumns(root.content, root.loc, {
       highlightCode: color && highlightCode,
-      message: ansi.red(root.id),
+      message: ansi.red(root.id)
     })
-      .split('\n')
+      .split("\n")
       .map(colorFixer)
-      .join('\n');
+      .join("\n");
   }
 
   /* eslint-enable no-param-reassign */
@@ -201,23 +201,23 @@ function createFrame({ primary, root, message }, { color, highlightCode }) {
 function outputError(acc, { primary, root, message }) {
   acc.push(
     [
-      `${ansi.red('error')}: ${ansi.bold('some type failures found')}`,
-      ansi.dim('(null)'),
-      'at',
-      `${ansi.green(primary.shownPath)}:`,
-    ].join(' '),
+      `${ansi.red("error")}: ${ansi.bold("some type failures found")}`,
+      ansi.dim("(null)"),
+      "at",
+      `${ansi.green(primary.shownPath)}:`
+    ].join(" ")
   );
 
   acc.push(message);
-  acc.push('');
+  acc.push("");
   acc.push(ansi.blue(primary.shownPath));
   acc.push(primary.frame);
   if (root) {
-    acc.push('');
+    acc.push("");
     acc.push(ansi.red(root.shownPath));
     acc.push(root.frame);
   }
-  acc.push('');
+  acc.push("");
 
   return acc;
 }
@@ -239,7 +239,7 @@ function outputError(acc, { primary, root, message }) {
 export function getDefaultOptions() {
   return {
     color: isCI === true ? false : isColors.stdout.level,
-    highlightCode: false,
+    highlightCode: false
   };
 }
 
