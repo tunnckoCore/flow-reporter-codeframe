@@ -30,7 +30,7 @@
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
-    "docks": "^0.5.0",
+    "docks": "^0.6.0",
     "esmc": "*",
     "gitcommit": "^1.0.9",
     "new-release": "^4.0.3",
