@@ -33,7 +33,7 @@
     "docks": "^0.6.0",
     "esmc": "*",
     "gitcommit": "^1.0.9",
-    "new-release": "^4.0.3",
+    "new-release": "^5.0.0",
     "nyc": "^13.0.0"
   },
   "files": [
