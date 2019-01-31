@@ -1809,13 +1809,13 @@ detect-next-version@^3.1.0:
     esm "^3.0.84"
     recommended-bump "^1.3.0"
 
-docks@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/docks/-/docks-0.6.0.tgz#22950bfb4b9dc350f5c4bddf11429bed8592697d"
+docks@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/docks/-/docks-0.7.0.tgz#7ff692cc6c4f8d5e53e00ef1c809643a61ab29ca"
   dependencies:
     "@babel/parser" "^7.1.3"
-    doctrine "^2.1.0"
-    esm "^3.0.84"
+    doctrine "^3.0.0"
+    esm "^3.2.0"
     fast-glob "^2.2.2"
     mkdirp "^0.5.1"
     mri "^1.1.1"
@@ -1830,6 +1830,12 @@ doctrine@1.5.0:
 doctrine@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-2.1.0.tgz#5cd01fc101621b42c4cd7f5d1a66243716d3f39d"
+  dependencies:
+    esutils "^2.0.2"
+
+doctrine@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-3.0.0.tgz#addebead72a6574db783639dc87a121773973961"
   dependencies:
     esutils "^2.0.2"
 
@@ -2098,6 +2104,10 @@ esm@^3.0.74:
 esm@^3.0.84:
   version "3.0.84"
   resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.84.tgz#bb108989f4673b32d4f62406869c28eed3815a63"
+
+esm@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.0.tgz#089011156cf817ccdae38c877cbe03301df04136"
 
 esmc@*:
   version "0.8.1"
