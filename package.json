@@ -28,7 +28,7 @@
     "supports-color": "^6.0.0"
   },
   "devDependencies": {
-    "all-contributors-cli": "^5.4.0",
+    "all-contributors-cli": "^6.0.0",
     "asia": "^0.19.7",
     "docks": "^0.7.0",
     "esmc": "*",
